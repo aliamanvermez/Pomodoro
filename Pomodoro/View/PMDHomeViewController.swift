@@ -115,40 +115,7 @@ class PMDHomeViewController: UIViewController {
     }
     
     func updateUI() {
-        viewModel = PMDHomeViewModel()
-        viewModel.countdownText = { [weak self] text in
-            DispatchQueue.main.async {
-            self?.countdownLabel.text = text
-            }
-        }
-        viewModel.timerCompleted = { [weak self] in
-            DispatchQueue.main.async {
-                self?.showTimerCompletedAlert()
-            }
-        }
-        viewModel.breakCompleted = { [weak self] in
-                 DispatchQueue.main.async {
-                     self?.showBreakCompletedAlert()
-                 }
-             }
+        viewModel.startPomodoroTime()
     }
-    
-    private func showTimerCompletedAlert() {
-        let alert = UIAlertController(title: "Süre Bitti!", message: "25 dakika tamamlandı. 5 dakikalık mola süresine başlamak için TAMAM'a tıklayın.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "TAMAM", style: .default) { [weak self] _ in
-            self?.viewModel.startBreakTimer()
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    private func showBreakCompletedAlert() {
-         let alert = UIAlertController(title: "Mola Bitti!", message: "5 dakikalık mola süresi tamamlandı. Devam etmek için OK'a tıklayın.", preferredStyle: .alert)
-         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-             self?.viewModel.startMainTimer()
-         }
-         alert.addAction(okAction)
-         present(alert, animated: true, completion: nil)
-     }
 
 }
