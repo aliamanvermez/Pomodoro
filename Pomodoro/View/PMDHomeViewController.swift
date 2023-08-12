@@ -40,6 +40,7 @@ class PMDHomeViewController: UIViewController {
         button.setTitle("Start Pomo", for: .normal)
         button.titleLabel?.font = UIFont.remThin(size: 20)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
         return button
     }()
     
@@ -58,7 +59,6 @@ class PMDHomeViewController: UIViewController {
         super.viewDidLoad()
         setSubviews()
         setViewConstraints()
-        setGestures()
     }
     
     func setViewConstraints(){
@@ -110,14 +110,7 @@ class PMDHomeViewController: UIViewController {
         view.addSubview(stopCountdownButton)
     }
     
-    func setGestures(){
-        let countDownGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(countdownLabelClicked))
-        countdownLabel.isUserInteractionEnabled = true
-        countdownLabel.addGestureRecognizer(countDownGestureRecognizer)
-    }
-    
-    @objc func countdownLabelClicked(){
-        countdownLabel.isUserInteractionEnabled = false
+    @objc func startButtonClicked(){
         updateUI()
     }
     
@@ -128,5 +121,20 @@ class PMDHomeViewController: UIViewController {
             self?.countdownLabel.text = text
             }
         }
+        viewModel.timerCompleted = { [weak self] in
+            DispatchQueue.main.async {
+                self?.showTimerCompletedAlert()
+            }
+        }
     }
+    
+    private func showTimerCompletedAlert() {
+        let alert = UIAlertController(title: "Süre Bitti!", message: "25 dakika tamamlandı. 5 dakikalık mola süresine başlamak için TAMAM'a tıklayın.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "TAMAM", style: .default) { [weak self] _ in
+            self?.viewModel.startBreakTimer()
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+
 }
