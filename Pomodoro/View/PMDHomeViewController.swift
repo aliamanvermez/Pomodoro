@@ -10,6 +10,8 @@ import SnapKit
 import Lottie
 class PMDHomeViewController: UIViewController {
     
+    var viewModel = PMDHomeViewModel()
+
     lazy var headerLabel : UILabel = {
         let label = UILabel()
         label.text = "Start to focus"
@@ -22,7 +24,6 @@ class PMDHomeViewController: UIViewController {
         let animationView = LottieAnimationView(name: "circle")
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .loop
-        animationView.play()
         return animationView
     }()
     
@@ -44,16 +45,16 @@ class PMDHomeViewController: UIViewController {
         return button
     }()
     
-    lazy var stopCountdownButton : UIButton = {
+    lazy var pauseCountdownButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Stop Pomo", for: .normal)
+        button.setTitle("Pause Pomo", for: .normal)
         button.titleLabel?.font = UIFont.remThin(size: 20)
+        button.addTarget(self, action: #selector(stopButtonClicked), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
         return button
     }()
     
     
-    var viewModel = PMDHomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,16 +91,13 @@ class PMDHomeViewController: UIViewController {
             make.top.equalTo(timerAnimationBorder.snp.bottom).offset(50)
         }
         
-        stopCountdownButton.snp.makeConstraints { make in
+        pauseCountdownButton.snp.makeConstraints { make in
             make.width.equalTo(150)
             make.height.equalTo(50)
             make.centerX.equalToSuperview()
             make.top.equalTo(startCountdownButton.snp.bottom).offset(20)
             
-        }
-        
-        
-        
+        }    
     }
     
     func setSubviews(){
@@ -107,11 +105,19 @@ class PMDHomeViewController: UIViewController {
         view.addSubview(timerAnimationBorder)
         view.addSubview(countdownLabel)
         view.addSubview(startCountdownButton)
-        view.addSubview(stopCountdownButton)
+        view.addSubview(pauseCountdownButton)
     }
     
     @objc func startButtonClicked(){
         updateUI()
+        timerAnimationBorder.play()
+
+    }
+    
+    @objc func stopButtonClicked(){
+        timerAnimationBorder.pause()
+        viewModel.stopPomodoroTime()
+        stopPomodoroAlert()
     }
     
     func updateUI() {
@@ -148,5 +154,20 @@ class PMDHomeViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
         
+    }
+    
+    func stopPomodoroAlert(){
+        let alert = UIAlertController(title: "Pomodoro Süresi Durdurulsun mu?", message: "Pomodoro süresi durdurulacak. Devam etmek için TAMAM'a tıklayın.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "TAMAM", style: .default) { [weak self] _ in
+            self?.viewModel.stopPomodoroTime()
+        }
+        let cancelAction = UIAlertAction(title: "İPTAL", style: .cancel) { _ in
+            self.timerAnimationBorder.play()
+            self.viewModel.startPomodoroTime()
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }

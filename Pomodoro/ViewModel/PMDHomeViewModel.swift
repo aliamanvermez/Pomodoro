@@ -8,7 +8,7 @@
 import Foundation
 class PMDHomeViewModel {
     var timer : Timer?
-    var pomodoroRemainingTime : TimeInterval = 5
+    var pomodoroRemainingTime : TimeInterval = 25 * 60
     var pomodoroRemainingBreakTime : TimeInterval = 10
     var isBreak : Bool = false
     
@@ -26,10 +26,14 @@ class PMDHomeViewModel {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBreakTimer), userInfo: nil, repeats: true)
     }
     
+    func stopPomodoroTime(){
+        timer?.invalidate()
+    }
+    
     @objc func updateTimer(){
             if pomodoroRemainingTime > 0 {
                 pomodoroRemainingTime -= 1
-                pomodoroTimeText?("\(pomodoroRemainingTime)")
+                pomodoroTimeText?(String(format: "%02d:%02d", Int(pomodoroRemainingTime) / 60, Int(pomodoroRemainingTime) % 60))
                 print("Pomodoro Work Time: \(pomodoroRemainingTime)")
             }
             else{
