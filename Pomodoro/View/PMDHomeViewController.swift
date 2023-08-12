@@ -38,19 +38,50 @@ class PMDHomeViewController: UIViewController {
     
     lazy var startCountdownButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Start Pomo", for: .normal)
+        button.setTitle("Start to focus", for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 26
         button.titleLabel?.font = UIFont.remThin(size: 20)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var continueCountdownButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("Continue to focus", for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 26
+        button.titleLabel?.font = UIFont.remThin(size: 20)
+        button.setTitleColor(.black, for: .normal)
+        button.isHidden = true
+        button.addTarget(self, action: #selector(continueButtonClicked), for: .touchUpInside)
         return button
     }()
     
     lazy var pauseCountdownButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Pause Pomo", for: .normal)
+        button.setTitle("Pause", for: .normal)
+        button.backgroundColor = .systemGray
+        button.layer.cornerRadius = 26
         button.titleLabel?.font = UIFont.remThin(size: 20)
-        button.addTarget(self, action: #selector(stopButtonClicked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(pauseButtonClicked), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
+        button.isHidden = true
+        button.isUserInteractionEnabled = false
+        return button
+    }()
+    
+    lazy var stopCountdownButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("Stop Pomo Session", for: .normal)
+        button.backgroundColor = .systemRed
+        button.layer.cornerRadius = 26
+        button.titleLabel?.font = UIFont.remThin(size: 20)
+        button.addTarget(self, action: #selector(pauseButtonClicked), for: .touchUpInside)
+        button.setTitleColor(.white, for: .normal)
+        button.isHidden = true
+        button.isUserInteractionEnabled = false
         return button
     }()
     
@@ -85,19 +116,32 @@ class PMDHomeViewController: UIViewController {
             make.centerY.equalTo(timerAnimationBorder.snp.centerY)
         }
         startCountdownButton.snp.makeConstraints { make in
-            make.width.equalTo(150)
+            make.width.equalTo(250)
             make.height.equalTo(50)
             make.centerX.equalToSuperview()
             make.top.equalTo(timerAnimationBorder.snp.bottom).offset(50)
         }
         
         pauseCountdownButton.snp.makeConstraints { make in
-            make.width.equalTo(150)
+            make.width.equalTo(250)
             make.height.equalTo(50)
             make.centerX.equalToSuperview()
-            make.top.equalTo(startCountdownButton.snp.bottom).offset(20)
+            make.top.equalTo(timerAnimationBorder.snp.bottom).offset(50)
             
-        }    
+        }
+        stopCountdownButton.snp.makeConstraints { make in
+            make.width.equalTo(250)
+            make.height.equalTo(50)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(pauseCountdownButton.snp.bottom).offset(50)
+        }
+        
+        continueCountdownButton.snp.makeConstraints { make in
+            make.width.equalTo(250)
+            make.height.equalTo(50)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(timerAnimationBorder.snp.bottom).offset(50)
+        }
     }
     
     func setSubviews(){
@@ -106,18 +150,30 @@ class PMDHomeViewController: UIViewController {
         view.addSubview(countdownLabel)
         view.addSubview(startCountdownButton)
         view.addSubview(pauseCountdownButton)
+        view.addSubview(stopCountdownButton)
+        view.addSubview(continueCountdownButton)
     }
     
     @objc func startButtonClicked(){
         updateUI()
         timerAnimationBorder.play()
-
+        startCountdownButton.isHidden = true
+        pauseCountdownButton.isHidden = false
+        pauseCountdownButton.isUserInteractionEnabled = true
     }
     
-    @objc func stopButtonClicked(){
+    @objc func pauseButtonClicked(){
         timerAnimationBorder.pause()
         viewModel.stopPomodoroTime()
-        stopPomodoroAlert()
+        stopCountdownButton.isHidden = false
+        pauseCountdownButton.isHidden = true
+        continueCountdownButton.isHidden = false
+    }
+    
+    @objc func continueButtonClicked(){
+        timerAnimationBorder.play()
+        viewModel.startPomodoroTime()
+        pauseCountdownButton.isHidden = false
     }
     
     func updateUI() {
