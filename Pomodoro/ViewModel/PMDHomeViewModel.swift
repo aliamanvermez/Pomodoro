@@ -10,20 +10,23 @@ class PMDHomeViewModel {
     private var mainTimer: Timer?
     private var breakTimer: Timer?
     private var remainingTime: TimeInterval = 5 // 25 dakika
-    private var remainingBreakTime : TimeInterval = 5 * 60 //5 dakika
+    private var remainingBreakTime : TimeInterval = 3 //5 dakika
     private var isOnBreak = false
     
     var countdownText: ((String) -> Void)?
     var timerCompleted : (() -> Void)?
-    var breakStarted : (() -> Void)?
+    var breakCompleted: (() -> Void)?
     
     init() {
         startMainTimer()
     }
     
+    
     func startMainTimer() {
+        mainTimer?.invalidate()
         mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateMainCountdown), userInfo: nil, repeats: true)
     }
+    
     
     func startBreakTimer() {
         breakTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBreakCountdown), userInfo: nil, repeats: true)
@@ -33,6 +36,7 @@ class PMDHomeViewModel {
         guard remainingTime > 0 else {
             mainTimer?.invalidate()
             isOnBreak = true
+            startBreakTimer()
             timerCompleted?()
             return
         }
@@ -46,8 +50,9 @@ class PMDHomeViewModel {
     }
     
     @objc private func updateBreakCountdown() {
-        guard isOnBreak else {
+        guard remainingBreakTime > 0 else {
             breakTimer?.invalidate()
+            breakCompleted?()
             return
         }
         
