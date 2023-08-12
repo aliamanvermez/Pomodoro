@@ -54,7 +54,7 @@ class PMDHomeViewController: UIViewController {
     
     
     var viewModel = PMDHomeViewModel()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setSubviews()
@@ -75,7 +75,7 @@ class PMDHomeViewController: UIViewController {
             make.height.equalTo(300)
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(-50)
-        
+            
         }
         countdownLabel.snp.makeConstraints { make in
             make.width.equalTo(300)
@@ -95,10 +95,10 @@ class PMDHomeViewController: UIViewController {
             make.height.equalTo(50)
             make.centerX.equalToSuperview()
             make.top.equalTo(startCountdownButton.snp.bottom).offset(20)
-        
+            
         }
         
-       
+        
         
     }
     
@@ -116,6 +116,37 @@ class PMDHomeViewController: UIViewController {
     
     func updateUI() {
         viewModel.startPomodoroTime()
+        viewModel.pomodoroTimeText = { [weak self] text in
+            self?.countdownLabel.text = text
+        }
+        viewModel.pomodoroBreakTimeText = {
+            [weak self] text in
+            self?.countdownLabel.text = text
+        }
+        viewModel.pomodoroAlertTetikle = { [weak self] in
+            self?.showTimerCompletedAlert()
+        }
+        viewModel.pomodoroBreakAlertTetikle = { [weak self] in
+            self?.showBreakTimerCompletedAlert()
+        }
     }
-
+    
+    func showTimerCompletedAlert() {
+        let alert = UIAlertController(title: "Süre Bitti!", message: "25 dakika tamamlandı. 5 dakikalık mola süresine başlamak için TAMAM'a tıklayın.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "TAMAM", style: .default) { [weak self] _ in
+            self?.viewModel.startPomodoroBreakTime()
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showBreakTimerCompletedAlert() {
+        let alert = UIAlertController(title: "Mola Süresi Bitti!", message: "5 dakikalık mola süresi tamamlandı. 25 dakikalık pomodoro süresine başlamak için TAMAM'a tıklayın.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "TAMAM", style: .default) { [weak self] _ in
+            self?.viewModel.startPomodoroTime()
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+        
+    }
 }

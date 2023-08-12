@@ -12,6 +12,12 @@ class PMDHomeViewModel {
     var pomodoroRemainingBreakTime : TimeInterval = 10
     var isBreak : Bool = false
     
+    var pomodoroTimeText : ((String)-> Void)?
+    var pomodoroBreakTimeText : ((String)->Void)?
+    
+    var pomodoroAlertTetikle : (() -> Void)?
+    var pomodoroBreakAlertTetikle : (()->Void)?
+        
     func startPomodoroTime(){
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
@@ -23,23 +29,25 @@ class PMDHomeViewModel {
     @objc func updateTimer(){
             if pomodoroRemainingTime > 0 {
                 pomodoroRemainingTime -= 1
+                pomodoroTimeText?("\(pomodoroRemainingTime)")
                 print("Pomodoro Work Time: \(pomodoroRemainingTime)")
             }
             else{
                 pomodoroRemainingTime = 5
                 timer?.invalidate()
-                startPomodoroBreakTime()
+                pomodoroAlertTetikle?()
             }
     }
     
     @objc func updateBreakTimer(){
         if pomodoroRemainingBreakTime > 0 {
             pomodoroRemainingBreakTime -= 1
+            pomodoroBreakTimeText?("\(pomodoroRemainingBreakTime)")
             print("Pomodoro Break Time: \(pomodoroRemainingBreakTime)")
         }
         else{
             timer?.invalidate()
-            startPomodoroTime()
+            pomodoroBreakAlertTetikle?()
         }
     
     }
