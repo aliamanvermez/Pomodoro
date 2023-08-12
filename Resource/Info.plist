@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>REM-Black.ttf</string>
+		<string>REM-Bold.ttf</string>
+		<string>REM-ExtraBold.ttf</string>
+		<string>REM-Italic.ttf</string>
+		<string>REM-Light.ttf</string>
+		<string>REM-Medium.ttf</string>
+		<string>REM-Regular.ttf</string>
+		<string>REM-SemiBold.ttf</string>
+		<string>REM-Thin.ttf</string>
+		<string>REM-ThinItalic.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

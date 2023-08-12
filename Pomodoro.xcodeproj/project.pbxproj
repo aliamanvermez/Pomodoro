@@ -10,13 +10,55 @@
 		EF29C34C2A8674A200340D99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C34B2A8674A200340D99 /* AppDelegate.swift */; };
 		EF29C34E2A8674A200340D99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C34D2A8674A200340D99 /* SceneDelegate.swift */; };
 		EF29C3502A8674A200340D99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C34F2A8674A200340D99 /* ViewController.swift */; };
-		EF29C3532A8674A200340D99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF29C3512A8674A200340D99 /* Main.storyboard */; };
 		EF29C3562A8674A200340D99 /* Pomodoro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF29C3542A8674A200340D99 /* Pomodoro.xcdatamodeld */; };
 		EF29C3582A8674A200340D99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF29C3572A8674A200340D99 /* Assets.xcassets */; };
 		EF29C35B2A8674A200340D99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF29C3592A8674A200340D99 /* LaunchScreen.storyboard */; };
 		EF29C3662A8674A300340D99 /* PomodoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C3652A8674A300340D99 /* PomodoroTests.swift */; };
 		EF29C3702A8674A300340D99 /* PomodoroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C36F2A8674A300340D99 /* PomodoroUITests.swift */; };
 		EF29C3722A8674A300340D99 /* PomodoroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C3712A8674A300340D99 /* PomodoroUITestsLaunchTests.swift */; };
+		EF29C37F2A86759800340D99 /* PMDHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C37E2A86759800340D99 /* PMDHomeViewController.swift */; };
+		EF29C3872A8677A400340D99 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF29C3862A8677A400340D99 /* SnapKit */; };
+		EF29C38A2A86798000340D99 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C3892A86798000340D99 /* UIViewController+Extension.swift */; };
+		EFAB3EDE2A878866003612FD /* PMDHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB3EDD2A878866003612FD /* PMDHomeViewModel.swift */; };
+		EFAB3EE12A8795D7003612FD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EFAB3EE02A8795D7003612FD /* Lottie */; };
+		EFAB3EE62A8798DB003612FD /* circle.json in Resources */ = {isa = PBXBuildFile; fileRef = EFAB3EE52A8798DB003612FD /* circle.json */; };
+		EFFE736E2A867D8C00A249D6 /* REM-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735A2A867D8B00A249D6 /* REM-Bold.ttf */; };
+		EFFE736F2A867D8C00A249D6 /* REM-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735A2A867D8B00A249D6 /* REM-Bold.ttf */; };
+		EFFE73702A867D8C00A249D6 /* REM-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735A2A867D8B00A249D6 /* REM-Bold.ttf */; };
+		EFFE73712A867D8C00A249D6 /* REM-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735B2A867D8B00A249D6 /* REM-Italic.ttf */; };
+		EFFE73722A867D8C00A249D6 /* REM-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735B2A867D8B00A249D6 /* REM-Italic.ttf */; };
+		EFFE73732A867D8C00A249D6 /* REM-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735B2A867D8B00A249D6 /* REM-Italic.ttf */; };
+		EFFE73772A867D8C00A249D6 /* REM-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735D2A867D8B00A249D6 /* REM-Light.ttf */; };
+		EFFE73782A867D8C00A249D6 /* REM-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735D2A867D8B00A249D6 /* REM-Light.ttf */; };
+		EFFE73792A867D8C00A249D6 /* REM-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735D2A867D8B00A249D6 /* REM-Light.ttf */; };
+		EFFE737D2A867D8C00A249D6 /* REM-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735F2A867D8B00A249D6 /* REM-ExtraLight.ttf */; };
+		EFFE737E2A867D8C00A249D6 /* REM-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735F2A867D8B00A249D6 /* REM-ExtraLight.ttf */; };
+		EFFE737F2A867D8C00A249D6 /* REM-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE735F2A867D8B00A249D6 /* REM-ExtraLight.ttf */; };
+		EFFE73832A867D8C00A249D6 /* REM-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73612A867D8B00A249D6 /* REM-ThinItalic.ttf */; };
+		EFFE73842A867D8C00A249D6 /* REM-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73612A867D8B00A249D6 /* REM-ThinItalic.ttf */; };
+		EFFE73852A867D8C00A249D6 /* REM-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73612A867D8B00A249D6 /* REM-ThinItalic.ttf */; };
+		EFFE73862A867D8C00A249D6 /* REM-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73622A867D8C00A249D6 /* REM-Medium.ttf */; };
+		EFFE73872A867D8C00A249D6 /* REM-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73622A867D8C00A249D6 /* REM-Medium.ttf */; };
+		EFFE73882A867D8C00A249D6 /* REM-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73622A867D8C00A249D6 /* REM-Medium.ttf */; };
+		EFFE73892A867D8C00A249D6 /* REM-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73632A867D8C00A249D6 /* REM-SemiBold.ttf */; };
+		EFFE738A2A867D8C00A249D6 /* REM-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73632A867D8C00A249D6 /* REM-SemiBold.ttf */; };
+		EFFE738B2A867D8C00A249D6 /* REM-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73632A867D8C00A249D6 /* REM-SemiBold.ttf */; };
+		EFFE738F2A867D8C00A249D6 /* REM-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73652A867D8C00A249D6 /* REM-ExtraBold.ttf */; };
+		EFFE73902A867D8C00A249D6 /* REM-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73652A867D8C00A249D6 /* REM-ExtraBold.ttf */; };
+		EFFE73912A867D8C00A249D6 /* REM-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73652A867D8C00A249D6 /* REM-ExtraBold.ttf */; };
+		EFFE73922A867D8C00A249D6 /* REM-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73662A867D8C00A249D6 /* REM-Thin.ttf */; };
+		EFFE73932A867D8C00A249D6 /* REM-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73662A867D8C00A249D6 /* REM-Thin.ttf */; };
+		EFFE73942A867D8C00A249D6 /* REM-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73662A867D8C00A249D6 /* REM-Thin.ttf */; };
+		EFFE73982A867D8C00A249D6 /* REM-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73682A867D8C00A249D6 /* REM-Black.ttf */; };
+		EFFE73992A867D8C00A249D6 /* REM-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73682A867D8C00A249D6 /* REM-Black.ttf */; };
+		EFFE739A2A867D8C00A249D6 /* REM-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73682A867D8C00A249D6 /* REM-Black.ttf */; };
+		EFFE739B2A867D8C00A249D6 /* REM-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73692A867D8C00A249D6 /* REM-Regular.ttf */; };
+		EFFE739C2A867D8C00A249D6 /* REM-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73692A867D8C00A249D6 /* REM-Regular.ttf */; };
+		EFFE739D2A867D8C00A249D6 /* REM-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFFE73692A867D8C00A249D6 /* REM-Regular.ttf */; };
+		EFFE73A22A867FC400A249D6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE73A12A867FC400A249D6 /* UIFont+Extension.swift */; };
+		EFFE73A32A867FC400A249D6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE73A12A867FC400A249D6 /* UIFont+Extension.swift */; };
+		EFFE73A42A867FC400A249D6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE73A12A867FC400A249D6 /* UIFont+Extension.swift */; };
+		EFFE73A62A86852800A249D6 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFE73A52A86852800A249D6 /* Countdown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +83,6 @@
 		EF29C34B2A8674A200340D99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF29C34D2A8674A200340D99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EF29C34F2A8674A200340D99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EF29C3522A8674A200340D99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF29C3552A8674A200340D99 /* Pomodoro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pomodoro.xcdatamodel; sourceTree = "<group>"; };
 		EF29C3572A8674A200340D99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF29C35A2A8674A200340D99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +92,23 @@
 		EF29C36B2A8674A300340D99 /* PomodoroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF29C36F2A8674A300340D99 /* PomodoroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroUITests.swift; sourceTree = "<group>"; };
 		EF29C3712A8674A300340D99 /* PomodoroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF29C37E2A86759800340D99 /* PMDHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMDHomeViewController.swift; sourceTree = "<group>"; };
+		EF29C3892A86798000340D99 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		EFAB3EDD2A878866003612FD /* PMDHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMDHomeViewModel.swift; sourceTree = "<group>"; };
+		EFAB3EE52A8798DB003612FD /* circle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = circle.json; sourceTree = "<group>"; };
+		EFFE735A2A867D8B00A249D6 /* REM-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-Bold.ttf"; sourceTree = "<group>"; };
+		EFFE735B2A867D8B00A249D6 /* REM-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-Italic.ttf"; sourceTree = "<group>"; };
+		EFFE735D2A867D8B00A249D6 /* REM-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-Light.ttf"; sourceTree = "<group>"; };
+		EFFE735F2A867D8B00A249D6 /* REM-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-ExtraLight.ttf"; sourceTree = "<group>"; };
+		EFFE73612A867D8B00A249D6 /* REM-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-ThinItalic.ttf"; sourceTree = "<group>"; };
+		EFFE73622A867D8C00A249D6 /* REM-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-Medium.ttf"; sourceTree = "<group>"; };
+		EFFE73632A867D8C00A249D6 /* REM-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-SemiBold.ttf"; sourceTree = "<group>"; };
+		EFFE73652A867D8C00A249D6 /* REM-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-ExtraBold.ttf"; sourceTree = "<group>"; };
+		EFFE73662A867D8C00A249D6 /* REM-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-Thin.ttf"; sourceTree = "<group>"; };
+		EFFE73682A867D8C00A249D6 /* REM-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-Black.ttf"; sourceTree = "<group>"; };
+		EFFE73692A867D8C00A249D6 /* REM-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "REM-Regular.ttf"; sourceTree = "<group>"; };
+		EFFE73A12A867FC400A249D6 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		EFFE73A52A86852800A249D6 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +116,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF29C3872A8677A400340D99 /* SnapKit in Frameworks */,
+				EFAB3EE12A8795D7003612FD /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				EF29C34A2A8674A200340D99 /* Pomodoro */,
+				EF29C3882A86796600340D99 /* Extension */,
+				EF29C3842A8675D500340D99 /* Resource */,
 				EF29C3642A8674A300340D99 /* PomodoroTests */,
 				EF29C36E2A8674A300340D99 /* PomodoroUITests */,
 				EF29C3492A8674A200340D99 /* Products */,
@@ -101,14 +163,13 @@
 		EF29C34A2A8674A200340D99 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				EFFE73502A867CE700A249D6 /* Fonts */,
+				EF29C3812A8675B000340D99 /* Model */,
+				EF29C3832A8675CE00340D99 /* View */,
+				EF29C3822A8675BB00340D99 /* ViewModel */,
+				EF29C3802A86759E00340D99 /* Controller */,
 				EF29C34B2A8674A200340D99 /* AppDelegate.swift */,
 				EF29C34D2A8674A200340D99 /* SceneDelegate.swift */,
-				EF29C34F2A8674A200340D99 /* ViewController.swift */,
-				EF29C3512A8674A200340D99 /* Main.storyboard */,
-				EF29C3572A8674A200340D99 /* Assets.xcassets */,
-				EF29C3592A8674A200340D99 /* LaunchScreen.storyboard */,
-				EF29C35C2A8674A200340D99 /* Info.plist */,
-				EF29C3542A8674A200340D99 /* Pomodoro.xcdatamodeld */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
@@ -130,6 +191,85 @@
 			path = PomodoroUITests;
 			sourceTree = "<group>";
 		};
+		EF29C3802A86759E00340D99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EF29C3812A8675B000340D99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE73A52A86852800A249D6 /* Countdown.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF29C3822A8675BB00340D99 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFAB3EDD2A878866003612FD /* PMDHomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF29C3832A8675CE00340D99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF29C34F2A8674A200340D99 /* ViewController.swift */,
+				EF29C37E2A86759800340D99 /* PMDHomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF29C3842A8675D500340D99 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EFAB3EE22A8797AB003612FD /* Lottie JSON */,
+				EF29C3572A8674A200340D99 /* Assets.xcassets */,
+				EF29C3592A8674A200340D99 /* LaunchScreen.storyboard */,
+				EF29C3542A8674A200340D99 /* Pomodoro.xcdatamodeld */,
+				EF29C35C2A8674A200340D99 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		EF29C3882A86796600340D99 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF29C3892A86798000340D99 /* UIViewController+Extension.swift */,
+				EFFE73A12A867FC400A249D6 /* UIFont+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EFAB3EE22A8797AB003612FD /* Lottie JSON */ = {
+			isa = PBXGroup;
+			children = (
+				EFAB3EE52A8798DB003612FD /* circle.json */,
+			);
+			path = "Lottie JSON";
+			sourceTree = "<group>";
+		};
+		EFFE73502A867CE700A249D6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE73682A867D8C00A249D6 /* REM-Black.ttf */,
+				EFFE735A2A867D8B00A249D6 /* REM-Bold.ttf */,
+				EFFE73652A867D8C00A249D6 /* REM-ExtraBold.ttf */,
+				EFFE735F2A867D8B00A249D6 /* REM-ExtraLight.ttf */,
+				EFFE735B2A867D8B00A249D6 /* REM-Italic.ttf */,
+				EFFE735D2A867D8B00A249D6 /* REM-Light.ttf */,
+				EFFE73622A867D8C00A249D6 /* REM-Medium.ttf */,
+				EFFE73692A867D8C00A249D6 /* REM-Regular.ttf */,
+				EFFE73632A867D8C00A249D6 /* REM-SemiBold.ttf */,
+				EFFE73662A867D8C00A249D6 /* REM-Thin.ttf */,
+				EFFE73612A867D8B00A249D6 /* REM-ThinItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +286,10 @@
 			dependencies = (
 			);
 			name = Pomodoro;
+			packageProductDependencies = (
+				EF29C3862A8677A400340D99 /* SnapKit */,
+				EFAB3EE02A8795D7003612FD /* Lottie */,
+			);
 			productName = Pomodoro;
 			productReference = EF29C3482A8674A200340D99 /* Pomodoro.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +362,10 @@
 				Base,
 			);
 			mainGroup = EF29C33F2A8674A200340D99;
+			packageReferences = (
+				EF29C3852A8677A400340D99 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EFAB3EDF2A8795D7003612FD /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = EF29C3492A8674A200340D99 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -234,9 +382,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFE73832A867D8C00A249D6 /* REM-ThinItalic.ttf in Resources */,
+				EFFE739B2A867D8C00A249D6 /* REM-Regular.ttf in Resources */,
 				EF29C35B2A8674A200340D99 /* LaunchScreen.storyboard in Resources */,
+				EFFE736E2A867D8C00A249D6 /* REM-Bold.ttf in Resources */,
+				EFFE73862A867D8C00A249D6 /* REM-Medium.ttf in Resources */,
+				EFFE73772A867D8C00A249D6 /* REM-Light.ttf in Resources */,
+				EFFE73892A867D8C00A249D6 /* REM-SemiBold.ttf in Resources */,
+				EFFE73712A867D8C00A249D6 /* REM-Italic.ttf in Resources */,
+				EFFE737D2A867D8C00A249D6 /* REM-ExtraLight.ttf in Resources */,
 				EF29C3582A8674A200340D99 /* Assets.xcassets in Resources */,
-				EF29C3532A8674A200340D99 /* Main.storyboard in Resources */,
+				EFFE73982A867D8C00A249D6 /* REM-Black.ttf in Resources */,
+				EFAB3EE62A8798DB003612FD /* circle.json in Resources */,
+				EFFE73922A867D8C00A249D6 /* REM-Thin.ttf in Resources */,
+				EFFE738F2A867D8C00A249D6 /* REM-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +403,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFE736F2A867D8C00A249D6 /* REM-Bold.ttf in Resources */,
+				EFFE73932A867D8C00A249D6 /* REM-Thin.ttf in Resources */,
+				EFFE73872A867D8C00A249D6 /* REM-Medium.ttf in Resources */,
+				EFFE73992A867D8C00A249D6 /* REM-Black.ttf in Resources */,
+				EFFE73782A867D8C00A249D6 /* REM-Light.ttf in Resources */,
+				EFFE73722A867D8C00A249D6 /* REM-Italic.ttf in Resources */,
+				EFFE737E2A867D8C00A249D6 /* REM-ExtraLight.ttf in Resources */,
+				EFFE738A2A867D8C00A249D6 /* REM-SemiBold.ttf in Resources */,
+				EFFE73902A867D8C00A249D6 /* REM-ExtraBold.ttf in Resources */,
+				EFFE739C2A867D8C00A249D6 /* REM-Regular.ttf in Resources */,
+				EFFE73842A867D8C00A249D6 /* REM-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +421,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFE73702A867D8C00A249D6 /* REM-Bold.ttf in Resources */,
+				EFFE73942A867D8C00A249D6 /* REM-Thin.ttf in Resources */,
+				EFFE73882A867D8C00A249D6 /* REM-Medium.ttf in Resources */,
+				EFFE739A2A867D8C00A249D6 /* REM-Black.ttf in Resources */,
+				EFFE73792A867D8C00A249D6 /* REM-Light.ttf in Resources */,
+				EFFE73732A867D8C00A249D6 /* REM-Italic.ttf in Resources */,
+				EFFE737F2A867D8C00A249D6 /* REM-ExtraLight.ttf in Resources */,
+				EFFE738B2A867D8C00A249D6 /* REM-SemiBold.ttf in Resources */,
+				EFFE73912A867D8C00A249D6 /* REM-ExtraBold.ttf in Resources */,
+				EFFE739D2A867D8C00A249D6 /* REM-Regular.ttf in Resources */,
+				EFFE73852A867D8C00A249D6 /* REM-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +442,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFE73A22A867FC400A249D6 /* UIFont+Extension.swift in Sources */,
+				EF29C38A2A86798000340D99 /* UIViewController+Extension.swift in Sources */,
+				EFAB3EDE2A878866003612FD /* PMDHomeViewModel.swift in Sources */,
 				EF29C3562A8674A200340D99 /* Pomodoro.xcdatamodeld in Sources */,
 				EF29C3502A8674A200340D99 /* ViewController.swift in Sources */,
 				EF29C34C2A8674A200340D99 /* AppDelegate.swift in Sources */,
 				EF29C34E2A8674A200340D99 /* SceneDelegate.swift in Sources */,
+				EF29C37F2A86759800340D99 /* PMDHomeViewController.swift in Sources */,
+				EFFE73A62A86852800A249D6 /* Countdown.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFE73A32A867FC400A249D6 /* UIFont+Extension.swift in Sources */,
 				EF29C3662A8674A300340D99 /* PomodoroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFE73A42A867FC400A249D6 /* UIFont+Extension.swift in Sources */,
 				EF29C3722A8674A300340D99 /* PomodoroUITestsLaunchTests.swift in Sources */,
 				EF29C3702A8674A300340D99 /* PomodoroUITests.swift in Sources */,
 			);
@@ -301,14 +489,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EF29C3512A8674A200340D99 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF29C3522A8674A200340D99 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EF29C3592A8674A200340D99 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -372,6 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -429,6 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -448,10 +630,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z924NYN8MX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pomodoro/Info.plist;
+				INFOPLIST_FILE = Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -476,10 +658,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z924NYN8MX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pomodoro/Info.plist;
+				INFOPLIST_FILE = Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,6 +793,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF29C3852A8677A400340D99 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		EFAB3EDF2A8795D7003612FD /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF29C3862A8677A400340D99 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF29C3852A8677A400340D99 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EFAB3EE02A8795D7003612FD /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFAB3EDF2A8795D7003612FD /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EF29C3542A8674A200340D99 /* Pomodoro.xcdatamodeld */ = {
