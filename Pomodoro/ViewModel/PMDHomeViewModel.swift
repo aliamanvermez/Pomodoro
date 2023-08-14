@@ -30,6 +30,11 @@ class PMDHomeViewModel {
         timer?.invalidate()
     }
     
+    func resetPomodoroTime(){
+        pomodoroRemainingTime = 25 * 60
+        pomodoroTimeText?("25:00")
+    }
+    
     @objc func updateTimer(){
             if pomodoroRemainingTime > 0 {
                 pomodoroRemainingTime -= 1

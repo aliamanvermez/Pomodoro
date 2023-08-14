@@ -78,10 +78,10 @@ class PMDHomeViewController: UIViewController {
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 26
         button.titleLabel?.font = UIFont.remThin(size: 20)
-        button.addTarget(self, action: #selector(pauseButtonClicked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(stopButtonClicked), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
         button.isHidden = true
-        button.isUserInteractionEnabled = false
+        button.isUserInteractionEnabled = true
         return button
     }()
     
@@ -174,6 +174,15 @@ class PMDHomeViewController: UIViewController {
         timerAnimationBorder.play()
         viewModel.startPomodoroTime()
         pauseCountdownButton.isHidden = false
+        continueCountdownButton.isHidden = true
+        stopCountdownButton.isHidden = true
+    }
+    
+    @objc func stopButtonClicked(){
+        timerAnimationBorder.pause()
+        viewModel.stopPomodoroTime()
+        stopPomodoroAlert()
+    
     }
     
     func updateUI() {
@@ -213,11 +222,16 @@ class PMDHomeViewController: UIViewController {
     }
     
     func stopPomodoroAlert(){
-        let alert = UIAlertController(title: "Pomodoro Süresi Durdurulsun mu?", message: "Pomodoro süresi durdurulacak. Devam etmek için TAMAM'a tıklayın.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "TAMAM", style: .default) { [weak self] _ in
+        let alert = UIAlertController(title: "Pomodoro Süresi Durdurulsun mu?", message: "Pomodoro süresi durdurulacak. Devam etmek için Bitir'e tıklayın.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Bitir", style: .default) { [weak self] _ in
             self?.viewModel.stopPomodoroTime()
+            self?.viewModel.resetPomodoroTime()
+            self?.startCountdownButton.isHidden = false
+            self?.stopCountdownButton.isHidden = true
+            self?.pauseCountdownButton.isHidden = true
+            self?.continueCountdownButton.isHidden =  true
         }
-        let cancelAction = UIAlertAction(title: "İPTAL", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "İptal", style: .cancel) { _ in
             self.timerAnimationBorder.play()
             self.viewModel.startPomodoroTime()
         }
