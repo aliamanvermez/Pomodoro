@@ -33,6 +33,7 @@ class PMDHomeViewController: UIViewController {
         label.text = "25:00"
         label.textAlignment = .center
         label.textColor = .white
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -85,12 +86,37 @@ class PMDHomeViewController: UIViewController {
         return button
     }()
     
+    lazy var settingTimeIntervalChoosePicker : UIPickerView = {
+        let pickerView = UIPickerView()
+        pickerView.backgroundColor = .white
+        pickerView.layer.cornerRadius = 16
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.isHidden = true
+        return pickerView
+    }()
     
+    lazy var pickerViewDoneButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("Done", for: .normal)
+        button.backgroundColor = .systemRed
+        button.layer.cornerRadius = 26
+        button.titleLabel?.font = UIFont.remThin(size: 20)
+        button.addTarget(self, action: #selector(doneButtonClicked), for: .touchUpInside)
+        button.setTitleColor(.white, for: .normal)
+        button.isHidden = true
+        button.isUserInteractionEnabled = true
+        return button
     
+    }()
+        
+    let selectableTimeIntervalsArray : [String : TimeInterval] = ["25:00 / 05:00" : 25 * 60, "30:00 / 05:00" : 30 * 60, "40:00 / 05:00" : 40 * 60 , "50:00 / 10:00" : 50 * 60]
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setSubviews()
         setViewConstraints()
+        setCountdownLabelTapGesture()
     }
     
     func setViewConstraints(){
@@ -142,6 +168,26 @@ class PMDHomeViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(timerAnimationBorder.snp.bottom).offset(50)
         }
+        
+        settingTimeIntervalChoosePicker.snp.makeConstraints { make in
+            make.width.equalTo(300)
+            make.height.equalTo(300)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-50)
+        }
+        
+        pickerViewDoneButton.snp.makeConstraints { make in
+            make.width.equalTo(250)
+            make.height.equalTo(50)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(settingTimeIntervalChoosePicker.snp.bottom).offset(-100)
+        }
+
+    }
+    
+    func setCountdownLabelTapGesture(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(countdownLabelTapped))
+        countdownLabel.addGestureRecognizer(tap)
     }
     
     func setSubviews(){
@@ -152,6 +198,8 @@ class PMDHomeViewController: UIViewController {
         view.addSubview(pauseCountdownButton)
         view.addSubview(stopCountdownButton)
         view.addSubview(continueCountdownButton)
+        view.addSubview(settingTimeIntervalChoosePicker)
+        view.addSubview(pickerViewDoneButton)
     }
     
     @objc func startButtonClicked(){
@@ -185,6 +233,17 @@ class PMDHomeViewController: UIViewController {
     
     }
     
+    @objc func countdownLabelTapped(){
+        settingTimeIntervalChoosePicker.isHidden = false
+        pickerViewDoneButton.isHidden = false
+    }
+    
+    @objc func doneButtonClicked(){
+        settingTimeIntervalChoosePicker.isHidden = true
+        pickerViewDoneButton.isHidden = true
+    }
+    
+    
     func updateUI() {
         viewModel.startPomodoroTime()
         viewModel.pomodoroTimeText = { [weak self] text in
@@ -194,16 +253,16 @@ class PMDHomeViewController: UIViewController {
             [weak self] text in
             self?.countdownLabel.text = text
         }
-        viewModel.pomodoroAlertTetikle = { [weak self] in
+        viewModel.pomodoroAlertTrigger = { [weak self] in
             self?.showTimerCompletedAlert()
         }
-        viewModel.pomodoroBreakAlertTetikle = { [weak self] in
+        viewModel.pomodoroBreakAlertTrigger = { [weak self] in
             self?.showBreakTimerCompletedAlert()
         }
     }
     
     func showTimerCompletedAlert() {
-        let alert = UIAlertController(title: "Süre Bitti!", message: "25 dakika tamamlandı. 5 dakikalık mola süresine başlamak için TAMAM'a tıklayın.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Pomo time is over!", message: "\(Int((viewModel.pomodoroRemainingTime / 60) + 1)) minutes completed. Click OK to begin the \(Int((viewModel.pomodoroRemainingBreakTime / 60) + 1)) minute break period.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "TAMAM", style: .default) { [weak self] _ in
             self?.viewModel.startPomodoroBreakTime()
         }
@@ -212,8 +271,8 @@ class PMDHomeViewController: UIViewController {
     }
     
     func showBreakTimerCompletedAlert() {
-        let alert = UIAlertController(title: "Mola Süresi Bitti!", message: "5 dakikalık mola süresi tamamlandı. 25 dakikalık pomodoro süresine başlamak için TAMAM'a tıklayın.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "TAMAM", style: .default) { [weak self] _ in
+        let alert = UIAlertController(title: "Break Time Is Over!", message: "The \(Int((viewModel.pomodoroRemainingTime / 60) + 1)) minute break period is complete. Click OK to begin the \(Int((viewModel.pomodoroRemainingTime / 60) + 1)) minute pomodoro period.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
             self?.viewModel.startPomodoroTime()
         }
         alert.addAction(okAction)
@@ -222,8 +281,8 @@ class PMDHomeViewController: UIViewController {
     }
     
     func stopPomodoroAlert(){
-        let alert = UIAlertController(title: "Pomodoro Süresi Durdurulsun mu?", message: "Pomodoro süresi durdurulacak. Devam etmek için Bitir'e tıklayın.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Bitir", style: .default) { [weak self] _ in
+        let alert = UIAlertController(title: "Finish Pomodoro Period?", message: "The Pomodoro period will be stopped. Click Finish to continue.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Finish", style: .default) { [weak self] _ in
             self?.viewModel.stopPomodoroTime()
             self?.viewModel.resetPomodoroTime()
             self?.startCountdownButton.isHidden = false
@@ -231,7 +290,7 @@ class PMDHomeViewController: UIViewController {
             self?.pauseCountdownButton.isHidden = true
             self?.continueCountdownButton.isHidden =  true
         }
-        let cancelAction = UIAlertAction(title: "İptal", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
             self.timerAnimationBorder.play()
             self.viewModel.startPomodoroTime()
         }
@@ -240,4 +299,43 @@ class PMDHomeViewController: UIViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
+}
+
+extension PMDHomeViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return selectableTimeIntervalsArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let keysArray = selectableTimeIntervalsArray.compactMap{$0.key}
+        let sortedKeysArray = keysArray.sorted()
+        return String(sortedKeysArray[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //Compact Map metodu dictionary bir arraydaki key ve value değerlerini ayırıp yeni bir array oluşturur. Bu sayede key ve value değerlerini ayrı ayrı kullanabiliriz.
+        
+        let keysArray = selectableTimeIntervalsArray.compactMap{$0.key}
+        let valuesArray = selectableTimeIntervalsArray.compactMap{$0.value}
+        
+        //Sorted yapmazsak array random sıralanıyor ve seçilen değer doğru olmuyor.
+        let sortedKeysArray = keysArray.sorted()
+        let sortedValuesArray = valuesArray.sorted()
+        
+        let newPomodoroTime = sortedValuesArray[row]
+        countdownLabel.text = String(sortedKeysArray[row])
+        viewModel.pomodoroRemainingTime = newPomodoroTime
+        viewModel.chosenPomodoroRemainingTime = newPomodoroTime
+        
+        //Eğer seçilen zaman aralığı 50 dakika ise mola süresini 10 dakikaya güncelliyoruz
+        if viewModel.chosenPomodoroRemainingTime == selectableTimeIntervalsArray["50:00 / 10:00"] {
+            viewModel.set50MinutesPomodoroTimeBreak()
+        }
+    }
+    
+    
 }

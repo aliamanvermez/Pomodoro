@@ -6,18 +6,21 @@
 //
 
 import Foundation
+
 class PMDHomeViewModel {
     var timer : Timer?
     var pomodoroRemainingTime : TimeInterval = 25 * 60
-    var pomodoroRemainingBreakTime : TimeInterval = 10
+    var chosenPomodoroRemainingTime : TimeInterval?
+    var pomodoroRemainingBreakTime : TimeInterval = 5 * 60
+    
     var isBreak : Bool = false
     
     var pomodoroTimeText : ((String)-> Void)?
     var pomodoroBreakTimeText : ((String)->Void)?
     
-    var pomodoroAlertTetikle : (() -> Void)?
-    var pomodoroBreakAlertTetikle : (()->Void)?
-        
+    var pomodoroAlertTrigger : (() -> Void)?
+    var pomodoroBreakAlertTrigger : (()->Void)?
+            
     func startPomodoroTime(){
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
@@ -31,8 +34,16 @@ class PMDHomeViewModel {
     }
     
     func resetPomodoroTime(){
-        pomodoroRemainingTime = 25 * 60
-        pomodoroTimeText?("25:00")
+        if  chosenPomodoroRemainingTime != nil {
+            pomodoroRemainingTime = chosenPomodoroRemainingTime!
+        } else {
+            pomodoroRemainingTime = 25 * 60
+        }
+        pomodoroTimeText?(String(format: "%02d:%02d", Int(pomodoroRemainingTime) / 60, Int(pomodoroRemainingTime) % 60))
+    }
+    
+    func set50MinutesPomodoroTimeBreak(){
+        pomodoroRemainingBreakTime = 10 * 60
     }
     
     @objc func updateTimer(){
@@ -44,97 +55,22 @@ class PMDHomeViewModel {
             else{
                 pomodoroRemainingTime = 5
                 timer?.invalidate()
-                pomodoroAlertTetikle?()
+                pomodoroAlertTrigger?()
             }
     }
     
     @objc func updateBreakTimer(){
         if pomodoroRemainingBreakTime > 0 {
             pomodoroRemainingBreakTime -= 1
-            pomodoroBreakTimeText?("\(pomodoroRemainingBreakTime)")
+            pomodoroBreakTimeText?(String(format: "%02d:%02d", Int(pomodoroRemainingBreakTime) / 60, Int(pomodoroRemainingBreakTime) % 60))
             print("Pomodoro Break Time: \(pomodoroRemainingBreakTime)")
         }
         else{
             timer?.invalidate()
-            pomodoroBreakAlertTetikle?()
+            pomodoroBreakAlertTrigger?()
         }
-    
     }
+    
+    
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    private var mainTimer: Timer?
-//    private var breakTimer: Timer?
-//    private var remainingTime: TimeInterval = 5 // 25 dakika
-//    private var remainingBreakTime : TimeInterval = 3 //5 dakika
-//    private var isOnBreak = false
-//
-//    var countdownText: ((String) -> Void)?
-//    var timerCompleted : (() -> Void)?
-//    var breakCompleted: (() -> Void)?
-//
-//    init() {
-//        startMainTimer()
-//    }
-//
-//
-//    func startMainTimer() {
-//        mainTimer?.invalidate()
-//        mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateMainCountdown), userInfo: nil, repeats: true)
-//    }
-//
-//
-//    func startBreakTimer() {
-//        breakTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBreakCountdown), userInfo: nil, repeats: true)
-//    }
-//
-//    @objc private func updateMainCountdown() {
-//        guard remainingTime > 0 else {
-//            mainTimer?.invalidate()
-//            isOnBreak = true
-//            startBreakTimer()
-//            timerCompleted?()
-//            return
-//        }
-//
-//        remainingTime -= 1
-//        let minutes = Int(remainingTime) / 60
-//        let seconds = Int(remainingTime) % 60
-//
-//        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
-//        countdownText?(formattedTime)
-//    }
-//
-//    @objc private func updateBreakCountdown() {
-//        guard remainingBreakTime > 0 else {
-//            breakTimer?.invalidate()
-//            breakCompleted?()
-//            return
-//        }
-//
-//        remainingBreakTime -= 1
-//        let minutes = Int(remainingBreakTime) / 60
-//        let seconds = Int(remainingBreakTime) % 60
-//
-//        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
-//        countdownText?(formattedTime)
-//    }
