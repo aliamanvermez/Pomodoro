@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import AVFoundation
 class PMDHomeViewModel {
     var timer : Timer?
     var pomodoroRemainingTime : TimeInterval = 25 * 60
@@ -53,9 +53,10 @@ class PMDHomeViewModel {
                 print("Pomodoro Work Time: \(pomodoroRemainingTime)")
             }
             else{
-                pomodoroRemainingTime = 5
+                print("çalışma zamanı bitiş")
                 timer?.invalidate()
                 pomodoroAlertTrigger?()
+                pomodoroBitisSesEfektiCalistir()
             }
     }
     
@@ -68,6 +69,18 @@ class PMDHomeViewModel {
         else{
             timer?.invalidate()
             pomodoroBreakAlertTrigger?()
+        }
+    }
+    
+    
+    func pomodoroBitisSesEfektiCalistir(){
+        do {
+            let url = try Bundle.main.url(forResource: "end_of_pomo_sound", withExtension: "mp3")
+            let player = try! AVAudioPlayer(contentsOf: url!)
+            player.play()
+
+        } catch {
+            print("error")
         }
     }
     
