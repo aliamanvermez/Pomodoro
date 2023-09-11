@@ -109,13 +109,6 @@ class PMDHomeViewController: UIViewController {
         return button
     
     }()
-    
-    lazy var menuIcon : UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "menu_icon"), for: .normal)
-        button.addTarget(self, action: #selector(menuIconClicked), for: .touchUpInside)
-        return button
-    }()
         
     let selectableTimeIntervalsArray : [String : TimeInterval] = ["25:00 / 05:00" : 2, "30:00 / 05:00" : 3, "40:00 / 05:00" : 4 , "50:00 / 10:00" : 5]
         
@@ -189,14 +182,6 @@ class PMDHomeViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(settingTimeIntervalChoosePicker.snp.bottom).offset(-100)
         }
-        
-        menuIcon.snp.makeConstraints { make in
-            make.width.equalTo(50)
-            make.height.equalTo(50)
-            make.top.equalToSuperview().offset(50)
-            make.left.equalToSuperview().offset(20)
-        
-        }
 
     }
     
@@ -215,7 +200,6 @@ class PMDHomeViewController: UIViewController {
         view.addSubview(continueCountdownButton)
         view.addSubview(settingTimeIntervalChoosePicker)
         view.addSubview(pickerViewDoneButton)
-        view.addSubview(menuIcon)
     }
     
     @objc func startButtonClicked(){
