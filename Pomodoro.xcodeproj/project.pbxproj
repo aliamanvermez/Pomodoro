@@ -10,6 +10,8 @@
 		EF0E22702A8A655D00D80D78 /* end_of_pomo_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF0E226F2A8A655D00D80D78 /* end_of_pomo_sound.mp3 */; };
 		EF0E58F32AAB52D500899D45 /* PMDTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0E58F22AAB52D500899D45 /* PMDTabBarController.swift */; };
 		EF0E58F52AAB571E00899D45 /* PMDSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0E58F42AAB571D00899D45 /* PMDSettingsViewController.swift */; };
+		EF0E58F72AAB5B9900899D45 /* PMDNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0E58F62AAB5B9900899D45 /* PMDNotesViewController.swift */; };
+		EF2179282AAF154C0072833F /* PMDNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2179272AAF154C0072833F /* PMDNotesViewModel.swift */; };
 		EF29C34C2A8674A200340D99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C34B2A8674A200340D99 /* AppDelegate.swift */; };
 		EF29C34E2A8674A200340D99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C34D2A8674A200340D99 /* SceneDelegate.swift */; };
 		EF29C3502A8674A200340D99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29C34F2A8674A200340D99 /* ViewController.swift */; };
@@ -84,6 +86,8 @@
 		EF0E226F2A8A655D00D80D78 /* end_of_pomo_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = end_of_pomo_sound.mp3; sourceTree = "<group>"; };
 		EF0E58F22AAB52D500899D45 /* PMDTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMDTabBarController.swift; sourceTree = "<group>"; };
 		EF0E58F42AAB571D00899D45 /* PMDSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMDSettingsViewController.swift; sourceTree = "<group>"; };
+		EF0E58F62AAB5B9900899D45 /* PMDNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMDNotesViewController.swift; sourceTree = "<group>"; };
+		EF2179272AAF154C0072833F /* PMDNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMDNotesViewModel.swift; sourceTree = "<group>"; };
 		EF29C3482A8674A200340D99 /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF29C34B2A8674A200340D99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF29C34D2A8674A200340D99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				EFAB3EDD2A878866003612FD /* PMDHomeViewModel.swift */,
+				EF2179272AAF154C0072833F /* PMDNotesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				EF29C34F2A8674A200340D99 /* ViewController.swift */,
 				EF29C37E2A86759800340D99 /* PMDHomeViewController.swift */,
 				EF0E58F42AAB571D00899D45 /* PMDSettingsViewController.swift */,
+				EF0E58F62AAB5B9900899D45 /* PMDNotesViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -469,10 +475,12 @@
 				EF0E58F32AAB52D500899D45 /* PMDTabBarController.swift in Sources */,
 				EF29C38A2A86798000340D99 /* UIViewController+Extension.swift in Sources */,
 				EFAB3EDE2A878866003612FD /* PMDHomeViewModel.swift in Sources */,
+				EF2179282AAF154C0072833F /* PMDNotesViewModel.swift in Sources */,
 				EF29C3562A8674A200340D99 /* Pomodoro.xcdatamodeld in Sources */,
 				EF0E58F52AAB571E00899D45 /* PMDSettingsViewController.swift in Sources */,
 				EF29C3502A8674A200340D99 /* ViewController.swift in Sources */,
 				EF29C34C2A8674A200340D99 /* AppDelegate.swift in Sources */,
+				EF0E58F72AAB5B9900899D45 /* PMDNotesViewController.swift in Sources */,
 				EF29C34E2A8674A200340D99 /* SceneDelegate.swift in Sources */,
 				EF29C37F2A86759800340D99 /* PMDHomeViewController.swift in Sources */,
 			);
